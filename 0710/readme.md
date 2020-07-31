@@ -75,7 +75,7 @@
 
 	  cross_entropy = -tf.reduce_sum(y_ * tf.log(y)+(1-y_)*tf.log(1-y))  
 
-	``y_ * tf.log(y)+(1-y_)*tf.log(1-y) ``에는 데이터들의 cross entropy가 2차원 텐서 형태로 담겨져 있다. ``reduce_sum()`` 를 통해  이 cross entropy의 평균을 구한다. (지정된 차원을 따라 평균을 내는 함수. 2차원인 경우 지정할 차원이 1개밖에 없으므로 차원을 따로 지정하지 않음)
+	``y_ * tf.log(y)+(1-y_)*tf.log(1-y) ``에는 데이터들의 cross entropy가 2차원 텐서 형태로 담겨져 있다. ``reduce_sum()`` 를 통해  이 cross entropy의 합을 구한다. (지정된 차원을 따라 합을 내는 함수. 2차원인 경우 지정할 차원이 1개밖에 없으므로 차원을 따로 지정하지 않음)
 
 - Gradients, 경사 하강법
 
