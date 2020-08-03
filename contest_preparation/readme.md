@@ -36,6 +36,7 @@
 		현재 AI hub에서 제공되는 Bounding Box  좌표 ⇒ (좌상단 x, 좌상단 y, 우하단 x, 우하단 y) 좌표
 		yolo에서 데이터 셋을 훈련시킬 때 label의 좌표 ⇒ (x, y, w, h) 좌표
 		
+		
 		> COCO 데이터 포맷은 bouding box 값이  **x, y, w, h**  값으로 구성되어있다.
 하지만 yolo 에서의 포맷은 클래스 번호와  **전체 영상 크기에 대한 center x, center y, w, h 비율 값**으로 구성된다.
 
