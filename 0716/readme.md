@@ -21,9 +21,10 @@
 	- 빨간 박스 : input x
 	- 파란 박스 : output y
 	- 녹색 박스 : hidden state
-	hidden state <img src="https://latex.codecogs.com/svg.latex?h_{t}" />는 직전 시점의 state <img src="https://latex.codecogs.com/svg.latex?h_{t-1}" />를 받아 갱신된다.
+	hidden state h<sub>t</sub>는 직전 시점의 state h<sub>t-1</sub>를 받아 갱신된다.
 	
-		> <img src="https://latex.codecogs.com/svg.latex?h_{t} = tanh(W_{hh}h_{t-1}+W_{wh}x_{t}+b_{h})" />
+		> <img src="https://latex.codecogs.com/svg.latex?\Large&space;h_{t}=tanh(W_{hh}h_{t-1}+W_{wh}x_{t}+b_{h})" />  
+
 	
 		히든 state의 활성함수(activation function)은 비선형 함수인 하이퍼볼릭탄젠트(tanh)이다.
 	
@@ -182,11 +183,11 @@ anaconda 환경에서는 그냥 konlpy 모듈을 설치만 해서는 실행이 �
 
 - 베이즈 정리 : 조건부 확률 P(A|B)는 사건 B가 발생한 경우 A의 확률
 	
-	> ### <img src="https://latex.codecogs.com/svg.latex?P(A|B)=\frac{P(A\bigcap B)}{P(B)}" />
+	> ### ![large](https://latex.codecogs.com/gif.latex?P%28A%7CB%29%3D%5Cfrac%7BP%28A%5Cbigcap%20B%29%7D%7BP%28B%29%7D)
 
 	- 나이브 베이즈(Naive Bayes)
 	
-		> ### <img src="https://latex.codecogs.com/svg.latex?P(A|B)=  \frac{P(B|A)\cdot P(A)}{P(B)}" />
+		> ### ![large](https://latex.codecogs.com/gif.latex?P%28A%7CB%29%3D%5Cfrac%7BP%28B%7CA%29%5Ccdot%20P%28A%29%7D%7BP%28B%29%7D)
 
 	참고자료
 	[https://gomguard.tistory.com/69](https://gomguard.tistory.com/69)
