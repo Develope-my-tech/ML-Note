@@ -21,7 +21,7 @@
 	- 빨간 박스 : input x
 	- 파란 박스 : output y
 	- 녹색 박스 : hidden state
-	hidden state <img src="https://latex.codecogs.com/svg.latex?h_{t}" />는 직전 시점의 state <img src="https://latex.codecogs.com/svg.latex?h_{t−1}" />를 받아 갱신된다.
+	hidden state <img src="https://latex.codecogs.com/svg.latex?h_{t}" />는 직전 시점의 state <img src="https://latex.codecogs.com/svg.latex?h_{t-1}" />를 받아 갱신된다.
 	
 		> <img src="https://latex.codecogs.com/svg.latex?h_{t} = tanh(W_{hh}h_{t-1}+W_{wh}x_{t}+b_{h})" />
 	
