@@ -48,6 +48,52 @@
 
 		추가)  OpenCV 좌표계
 			![enter image description here](https://lh4.googleusercontent.com/ndFH6A225tFLWb7JwjyMmn539c4e1c1CmU7w4hQD6j-uO9K4diKfZ-FDr8LFuKa9oad9IaunhXRz0kD0JoRbeRV4gzUpS0ELyPKMIlpXs9FgvbJZiNGreGvWQAlMnYnRkqzo8Vlh)
+
 		
+	> ### make_label.py
+	- classes : 클래스 리스트
+	- cls : 데이터를 분류할 클래스 이름
+	- main folder : 학습할 데이터 셋이 들어가있는 폴더.
+	- ??_label.txt : labeling 값을 저장한 txt 파일
+	- ??_img.txt : labeling된 이미지의 이름을 저장한 txt 파일
+
+	- folder tree
+		1) Bbox_1 ( 데이터 셋 루트 폴더)
+			1) Bbox_0001
+				1) 0617_01.xml
+				2) ??_0001.jpg
+				3) ??_0002.jpg
+					...
+			2) Bbox_0002
+				...
+
+		2) dataset ( 분류된 데이터 셋 ) ⇒ 학습에 이용할 이미지 셋
+			1) Bbox_1
+				1) Bbox_0001
+					1) Bbox_0001_img.txt 
+					2) Bbox_0001_label.txt 
+				2) Bbox_0002
+				...
+
+	- 기본 기능
+		1. 원본 데이터 root 폴더의 이름 (Bbox_1)을 dataset 폴더에다가 생성.
+			(이미 존재한다면 생성하지 않음)
+		2.  원본 데이터 root 폴더의 하위폴더 (Bbox_0001)을 dataset/하위폴더명으로 생성.
+			(마찬가지로 이미 존재한다면 생성하지 않음)
+		3. 하위 폴더 탐색을 시작
+			1. 파일들을 labeling 하기 전에 img.txt / label.txt 파일을 생성.
+			2. xml 파일을 찾음. file[0] ⇒ 가장 위에 있음.
+			3. xml을 파싱, traffic light를 가지는 사진을 화면에 출력
+			4. 바운딩 박스가 보행등일 경우 ``'z' 버튼`` ⇒ label.txt / img.txt에 순서에 맞게 저장.
+				**(labeling의 경우 convert 함수를 통해 데이터 포맷을 설정)**
+			5. 만약 라벨링이 잘못된 경우(실수로 차량등을 저장 등..) ``'q' 버튼``을 누르면 현재 탐색하고 있는 하위 폴더를 처음부터 재탐색 (return False)
+			6. 또는 라벨링을 중단하고 싶다면 'p'를 누르면 종료
+			⇒ 재시작시 
+
+					idx = len(os.listdir('dataset/' + mainfolder)) -1
+
+				마지막으로 탐색했던 폴더로 들어가 그 폴더부터 다시 시작.
+			7. 그 외에 현재 사진을 라벨링 하지 않고 계속 진행할 경우 아무 버튼이나 눌러주면 다음 사진으로 넘어감.
+			
 2) 훈련시키기 위한 설정
 [https://keyog.tistory.com/22](https://keyog.tistory.com/22)
