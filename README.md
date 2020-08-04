@@ -14,12 +14,12 @@ keras : https://tykimos.github.io/2017/01/27/MLP_Layer_Talk/](https://tykimos.gi
 를 이용한 모델 구현 및 학습 / 개념 정리
 
 ### 0709
-심장병과 관련있는 데이터가 담긴 csv 파일을 이용하여 모델 학습. 
-심장병을 예측하는 모델 구현
+- 심장병과 관련있는 데이터가 담긴 csv 파일을 이용하여 모델 학습. 
+- 심장병을 예측하는 모델 구현
 
 ### 0710
-tensorflow를 이용하여 직접 tensor 값, node 구조 등을 구축.
-csv 파일을 직접 만든 모델을 이용하여 예측, 정확도 확인
+- tensorflow를 이용하여 직접 tensor 값, node 구조 등을 구축.
+- csv 파일을 직접 만든 모델을 이용하여 예측, 정확도 확인
 
 ### 0713
 1. MLP(Multi-Layer Perceptron)과 Dense Layer 개념 정리.
@@ -30,8 +30,8 @@ loss와 accuracy 를 확인.
 3. 손글짜 숫자 인식을 하는 학습 모델 구축 및 테스트 
 
 ### 0715
-Text Processing을 위한 개념 정리.
-Embedding 층을 활용. Dense와 비교
+- Text Processing을 위한 개념 정리.
+- Embedding 층을 활용. Dense와 비교
 
 ### 0716
 1. RNN 신경망 개념 정리.
