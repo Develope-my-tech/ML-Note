@@ -61,8 +61,8 @@
 		1) Bbox_1 ( 데이터 셋 루트 폴더)
 			1) Bbox_0001
 				1) 0617_01.xml
-				2) ??_0001.jpg
-				3) ??_0002.jpg
+				2) img1.jpg
+				3) img2.jpg
 					...
 			2) Bbox_0002
 				...
@@ -70,8 +70,11 @@
 		2) dataset ( 분류된 데이터 셋 ) ⇒ 학습에 이용할 이미지 셋
 			1) Bbox_1
 				1) Bbox_0001
-					1) Bbox_0001_img.txt 
-					2) Bbox_0001_label.txt 
+					1) img.jpg
+					2) img.txt
+					3) img2.jpg
+					4) img2.txt
+					...
 				2) Bbox_0002
 				...
 
@@ -96,4 +99,31 @@
 			7. 그 외에 현재 사진을 라벨링 하지 않고 계속 진행할 경우 아무 버튼이나 눌러주면 다음 사진으로 넘어감.
 			
 2) 훈련시키기 위한 설정
+- [cfg 설정을 위한 설명글](https://eehoeskrap.tistory.com/370)
+
+- #### custom data train을 위한 파일
+	1) obj.data : 학습을 위한 내용이 담긴 파일
+		- classes 개수
+		- train.txt와 valid.txt의 경로
+		- obj.names의 경로
+		- weight을 저장할 폴더의 경로
+	2) obj.cfg
+		- 모델 구조 및 train과 관련된 설정이 들어있는 파일
+		- batch 및  subdivisions 사이즈(Cuda memory 관련), width 및 height 사이즈
+		- learning late, burn_in, max_batches,  policy, steps, scales 설정
+		- filter : (4+1+class수) * 3
+		- classes
+		- anchors 및 mask 설정
+	3) weight  : 미리 트레이닝 된 모델 또는 darknet53.conv.74 등의 가중치 파일
+	4) obj.names : annotation에 포함되어있는 라벨링 이름 목록. 검출하고자 하는 목록
+	5) images : 학습시킬 이미지들 
+	6) annotation : 학습시킬 이미지에 대한 주석들
+		- 각 이미지마다 주석들이 담긴 텍스트파일이 필요
+			- 0001.txt
+			- 0002.txt
+			....
+	7) train.txt : 학습시킬 이미지들의 경로들이 담긴 리스트
+	8) valid.txt : 학습 시 validation 할 이미지들의 경로들이 담긴 리스트
+
 [https://keyog.tistory.com/22](https://keyog.tistory.com/22)
+
