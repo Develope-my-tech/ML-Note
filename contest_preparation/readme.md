@@ -99,8 +99,6 @@
 			7. 그 외에 현재 사진을 라벨링 하지 않고 계속 진행할 경우 아무 버튼이나 눌러주면 다음 사진으로 넘어감.
 			
 2) 훈련시키기 위한 설정
-- [cfg 설정을 위한 설명글](https://eehoeskrap.tistory.com/370)
-
 - #### custom data train을 위한 파일
 	1) obj.data : 학습을 위한 내용이 담긴 파일
 		- classes 개수
@@ -124,8 +122,9 @@
 			....
 	7) train.txt : 학습시킬 이미지들의 경로들이 담긴 리스트
 	8) valid.txt : 학습 시 validation 할 이미지들의 경로들이 담긴 리스트
-
-[YOLO v4 custom데이터 훈련하기](https://keyog.tistory.com/22)
-[커스텀 데이터 셋으로 Yolo 써 보기 1](https://jueun-park.github.io/2018-07-12/yolo-custom-dataset)
-[[Object Detection] darknet custom 학습하기](https://eehoeskrap.tistory.com/370)
+	
+- 참고자료
+	- [cfg 설정을 위한 설명글](https://eehoeskrap.tistory.com/370)
+	- [YOLO v4 custom데이터 훈련하기](https://keyog.tistory.com/22)
+	- [커스텀 데이터 셋으로 Yolo 써 보기 1](https://jueun-park.github.io/2018-07-12/yolo-custom-dataset)
 
