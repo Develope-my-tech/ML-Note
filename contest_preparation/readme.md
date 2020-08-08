@@ -125,7 +125,7 @@
 	7) train.txt : 학습시킬 이미지들의 경로들이 담긴 리스트
 	8) valid.txt : 학습 시 validation 할 이미지들의 경로들이 담긴 리스트
 
-[https://keyog.tistory.com/22](https://keyog.tistory.com/22)
+https://keyog.tistory.com/22
 https://jueun-park.github.io/2018-07-12/yolo-custom-dataset
 https://eehoeskrap.tistory.com/370
 
