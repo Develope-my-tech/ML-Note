@@ -127,4 +127,5 @@
 	- [cfg 설정을 위한 설명글](https://eehoeskrap.tistory.com/370)
 	- [YOLO v4 custom데이터 훈련하기](https://keyog.tistory.com/22)
 	- [커스텀 데이터 셋으로 Yolo 써 보기 1](https://jueun-park.github.io/2018-07-12/yolo-custom-dataset)
+	- [https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects](https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects)
 
