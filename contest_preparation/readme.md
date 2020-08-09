@@ -128,3 +128,7 @@
 	- [커스텀 데이터 셋으로 Yolo 써 보기 1](https://jueun-park.github.io/2018-07-12/yolo-custom-dataset)
 	- [https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects](https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects)
 
+- #### Colab
+	- yolo를 노트북에서도 사용하기 위해서는 GPU를 사용해야 한다. 
+	- 이를 위해서 Google에서 지원하는 Colab을 이용해 yolo를 구동시킬 수 있다.
+	- Colab을 세션을 12시간만 유지시켜주기 때문에 저장이 불가하다. ==> 구글 드라이브에 데이터를 저장해 놓고 마운트 해서 쓸 수 있다.
