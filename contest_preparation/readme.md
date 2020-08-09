@@ -133,3 +133,8 @@
 	- Colab을 세션을 12시간만 유지시켜주기 때문에 저장이 불가하다. ==> 구글 드라이브에 데이터를 저장해 놓고 마운트 해서 쓸 수 있다.
 
 		![image](https://user-images.githubusercontent.com/34594339/89725910-db9d1d80-da4f-11ea-88bf-8ab79c47a555.png)
+		
+	- Colab에서 학습 시키기 위해서 Colab 안에서의 절대경로를 train.txt 파일에 지정해주어야 제대로 인식한다.. 
+
+		![image](https://user-images.githubusercontent.com/34594339/89726951-7a7b4700-da5b-11ea-973f-da9eb26c930b.png)
+
