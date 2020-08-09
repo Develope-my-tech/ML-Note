@@ -1,6 +1,5 @@
 
 ## yolov4 실행해보기
-
 1) dark net의 weight ⇒ yolov4.weights 으로 변환하는 과정.
 
 		# Convert darknet weights to tensorflow
@@ -26,23 +25,23 @@
 	속도는 tiny가 훨씬 빠르다.
 
 
-1) 데이터 가공하기
+### 1) 데이터 가공하기
 [AI Hub 데이터셋](http://www.aihub.or.kr/aidata/136)을 이용하여 신호등이 있는 사진과 Bounding Box가 되어있는 xml파일을 받았으나, **보행등과 차량등이 분류가 되어있지 않다** 는 문제점이 발생하였다.
-	- 해결방안
-		1) 우선적으로 데이터 셋에 신호등이 다 있는 것도 아니기 때문에 1차적으로 신호등을 찾아준다.
-		⇒ 신호등 label을 갖는 사진을 분류한다는 의미
-		2) label을 확인함과 동시에 신호등 사진을 띄운다. 그 사진속에 있는 신호등이 보행등이라면 저장, 차량등이라면 넘어간다.
-		3) 사진을 저장하는 경우에 label 데이터는 가공이 필요하다.
-		현재 AI hub에서 제공되는 Bounding Box  좌표 ⇒ (좌상단 x, 좌상단 y, 우하단 x, 우하단 y) 좌표
-		yolo에서 데이터 셋을 훈련시킬 때 label의 좌표 ⇒ (x, y, w, h) 좌표
-		
+- 해결방안
+	1) 우선적으로 데이터 셋에 신호등이 다 있는 것도 아니기 때문에 1차적으로 신호등을 찾아준다.
+	⇒ 신호등 label을 갖는 사진을 분류한다는 의미
+	2) label을 확인함과 동시에 신호등 사진을 띄운다. 그 사진속에 있는 신호등이 보행등이라면 저장, 차량등이라면 넘어간다.
+	3) 사진을 저장하는 경우에 label 데이터는 가공이 필요하다.
+	현재 AI hub에서 제공되는 Bounding Box  좌표 ⇒ (좌상단 x, 좌상단 y, 우하단 x, 우하단 y) 좌표
+	yolo에서 데이터 셋을 훈련시킬 때 label의 좌표 ⇒ (x, y, w, h) 좌표
+			
 		
 		> COCO 데이터 포맷은 bouding box 값이  **x, y, w, h**  값으로 구성되어있다.
 하지만 yolo 에서의 포맷은 클래스 번호와  **전체 영상 크기에 대한 center x, center y, w, h 비율 값**으로 구성된다.
 
-		출처: [https://eehoeskrap.tistory.com/367](https://eehoeskrap.tistory.com/367) 
-		참고 : [<보행등 사진만 분류하기>](https://github.com/Guanghan/darknet/blob/master/scripts/convert.py)
-		[https://sites.google.com/site/bimprinciple/in-the-news/yolodibleoninggibandolopyojipaninsig](https://sites.google.com/site/bimprinciple/in-the-news/yolodibleoninggibandolopyojipaninsig)
+		-  출처: [https://eehoeskrap.tistory.com/367](https://eehoeskrap.tistory.com/367) 
+		- 참고 : [<보행등 사진만 분류하기>](https://github.com/Guanghan/darknet/blob/master/scripts/convert.py)
+		- [https://sites.google.com/site/bimprinciple/in-the-news/yolodibleoninggibandolopyojipaninsig](https://sites.google.com/site/bimprinciple/in-the-news/yolodibleoninggibandolopyojipaninsig)
 	
 		내가 사용한 데이터셋은 COCO 데이터는 아니지만 이 글들을 보면서 참고해서 데이터 포맷을 맞춰줬다.
 
@@ -97,7 +96,7 @@
 				마지막으로 탐색했던 폴더로 들어가 그 폴더부터 다시 시작.
 			7. 그 외에 현재 사진을 라벨링 하지 않고 계속 진행할 경우 아무 버튼이나 눌러주면 다음 사진으로 넘어감.
 			
-2) 훈련시키기 위한 설정
+### 2) 훈련시키기 위한 설정
 - #### custom data train을 위한 파일
 	1) obj.data : 학습을 위한 내용이 담긴 파일
 		- classes 개수
@@ -132,3 +131,5 @@
 	- yolo를 노트북에서도 사용하기 위해서는 GPU를 사용해야 한다. 
 	- 이를 위해서 Google에서 지원하는 Colab을 이용해 yolo를 구동시킬 수 있다.
 	- Colab을 세션을 12시간만 유지시켜주기 때문에 저장이 불가하다. ==> 구글 드라이브에 데이터를 저장해 놓고 마운트 해서 쓸 수 있다.
+
+		![image](https://user-images.githubusercontent.com/34594339/89725910-db9d1d80-da4f-11ea-88bf-8ab79c47a555.png)
