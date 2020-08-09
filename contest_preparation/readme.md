@@ -138,3 +138,8 @@
 
 		![image](https://user-images.githubusercontent.com/34594339/89726951-7a7b4700-da5b-11ea-973f-da9eb26c930b.png)
 
+	 - 실행 명령어
+	
+		    !./darknet detector train custom/custom.data custom/yolov4-tiny.cfg custom/yolov4-tiny.conv.29 -dont_show -map
+	
+	   dont_show는 원래 map과 loss에 대한 그래프가 나오는데 코랩의 리눅스 상에서는 볼 수 없는 듯하다. 에러가 나기 때문에 보지 않는 것으로 처리해준다.
