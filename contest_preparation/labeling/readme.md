@@ -57,4 +57,5 @@ all_train.txt로 생성된 모든 이미지의 절대 경로를 8:2의 비율로
 이때 custom 폴더 안에 저장하므로 실행 전 custom 폴더가 존재해야한다.
 
 - 전체 결과
+
 ![image](https://user-images.githubusercontent.com/34594339/89789807-0ffe0000-db5c-11ea-9266-b7a23b01e7c9.png)
