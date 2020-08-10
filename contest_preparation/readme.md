@@ -1,4 +1,5 @@
 
+
 ## yolov4 실행해보기
 1) dark net의 weight ⇒ yolov4.weights 으로 변환하는 과정.
 
@@ -75,26 +76,37 @@
 			....
 	7) train.txt : 학습시킬 이미지들의 경로들이 담긴 리스트
 	8) valid.txt : 학습 시 validation 할 이미지들의 경로들이 담긴 리스트
-	
-- 참고자료
-	- [cfg 설정을 위한 설명글](https://eehoeskrap.tistory.com/370)
-	- [YOLO v4 custom데이터 훈련하기](https://keyog.tistory.com/22)
-	- [커스텀 데이터 셋으로 Yolo 써 보기 1](https://jueun-park.github.io/2018-07-12/yolo-custom-dataset)
-	- [https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects](https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects)
 
-- #### Colab
+	
+1) cfg 설정
+	- custom_yolov4-tiny.cfg 파일 수정
+	![image](https://user-images.githubusercontent.com/34594339/89791590-7b48d180-db5e-11ea-9c98-5e67e557fc33.png)
+
+	- anchor 계산
+		![image](https://user-images.githubusercontent.com/34594339/89791801-b9de8c00-db5e-11ea-9e7a-b9e63bdbe049.png)
+
+		- 참고자료
+			- [cfg 설정을 위한 설명글](https://eehoeskrap.tistory.com/370)
+			- [YOLO v4 custom데이터 훈련하기](https://keyog.tistory.com/22)
+			- [커스텀 데이터 셋으로 Yolo 써 보기 1](https://jueun-park.github.io/2018-07-12/yolo-custom-dataset)
+			- [https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects](https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects)
+			
+		- 0810) 추가 참고자료
+			- [https://murra.tistory.com/115](https://murra.tistory.com/115) ⇒ 가장 도음을 많이 받은 자료.
+			- [https://codingzzangmimi.tistory.com/76](https://codingzzangmimi.tistory.com/76)
+			-  [https://go-programming.tistory.com/160](https://go-programming.tistory.com/160)
+
+
+- ### Colab
 	- yolo를 노트북에서도 사용하기 위해서는 GPU를 사용해야 한다. 
 	- 이를 위해서 Google에서 지원하는 Colab을 이용해 yolo를 구동시킬 수 있다.
 	- Colab을 세션을 12시간만 유지시켜주기 때문에 저장이 불가하다. ==> 구글 드라이브에 데이터를 저장해 놓고 마운트 해서 쓸 수 있다.
 
 		![image](https://user-images.githubusercontent.com/34594339/89725910-db9d1d80-da4f-11ea-88bf-8ab79c47a555.png)
 		
-	- Colab에서 학습 시키기 위해서 Colab 안에서의 절대경로를 train.txt 파일에 지정해주어야 제대로 인식한다.. 
-
-		![image](https://user-images.githubusercontent.com/34594339/89726951-7a7b4700-da5b-11ea-973f-da9eb26c930b.png)
-
-	 - 실행 명령어
-	
-		    !./darknet detector train custom/custom.data custom/yolov4-tiny.cfg custom/yolov4-tiny.conv.29 -dont_show -map
-	
-	   원래 map과 loss에 대한 그래프가 나오는데 코랩의 리눅스 상에서는 볼 수 없는 듯하다. 에러가 나기 때문에 dont_show를 추가해 보지 않는 것으로 처리해준다.
+    - 실행 명령어
+    
+			!./darknet detector train custom/custom.data custom/custom_yolov4-tiny.cfg custom/yolov4-tiny.conv.29 -dont_show
+    
+       - 원래 map과 loss에 대한 그래프가 나오는데 코랩의 리눅스 상에서는 볼 수 없는 듯하다. 에러가 나기 때문에 dont_show를 추가해 보지 않는 것으로 처리해준다.
+	  - yolov4-tiny.conv.29 : pre-train된 weight 값을 넣어주었다. 첫 training에서 비워두고 사용해도 된다고 함.
