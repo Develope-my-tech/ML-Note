@@ -32,8 +32,8 @@
 	⇒ 신호등 label을 갖는 사진을 분류한다는 의미
 	2) label을 확인함과 동시에 신호등 사진을 띄운다. 그 사진속에 있는 신호등이 보행등이라면 저장, 차량등이라면 넘어간다.
 	3) 사진을 저장하는 경우에 label 데이터는 가공이 필요하다.
-	현재 AI hub에서 제공되는 Bounding Box  좌표 ⇒ (좌상단 x, 좌상단 y, 우하단 x, 우하단 y) 좌표
-	yolo에서 데이터 셋을 훈련시킬 때 label의 좌표 ⇒ (x, y, w, h) 좌표
+	현재 AI hub에서 제공되는 Bounding Box  좌표 ⇒ (좌상단 x, 좌상단 y, 우하단 x, 우하단 y좌표)
+	yolo에서 데이터 셋을 훈련시킬 때 label의 좌표 ⇒ (center x, center y, ratio w, ratio h) 좌표
 			
 		
 		> COCO 데이터 포맷은 bouding box 값이  **x, y, w, h**  값으로 구성되어있다.
@@ -48,54 +48,8 @@
 		추가)  OpenCV 좌표계
 			![enter image description here](https://lh4.googleusercontent.com/ndFH6A225tFLWb7JwjyMmn539c4e1c1CmU7w4hQD6j-uO9K4diKfZ-FDr8LFuKa9oad9IaunhXRz0kD0JoRbeRV4gzUpS0ELyPKMIlpXs9FgvbJZiNGreGvWQAlMnYnRkqzo8Vlh)
 
-		
-	> ### make_label.py
-	- classes : 클래스 리스트
-	- cls : 데이터를 분류할 클래스 이름
-	- main folder : 학습할 데이터 셋이 들어가있는 폴더.
-	- ??_label.txt : labeling 값을 저장한 txt 파일
-	- ??_img.txt : labeling된 이미지의 이름을 저장한 txt 파일
+#### +) 데이터 가공과 관련된 파일 ⇒ labeling 폴더의 파일 사용.
 
-	- folder tree
-		1) Bbox_1 ( 데이터 셋 루트 폴더)
-			1) Bbox_0001
-				1) 0617_01.xml
-				2) img1.jpg
-				3) img2.jpg
-					...
-			2) Bbox_0002
-				...
-
-		2) dataset ( 분류된 데이터 셋 ) ⇒ 학습에 이용할 이미지 셋
-			1) Bbox_1
-				1) Bbox_0001
-					1) img.jpg
-					2) img.txt
-					3) img2.jpg
-					4) img2.txt
-					...
-				2) Bbox_0002
-				...
-
-	- 기본 기능
-		1. 원본 데이터 root 폴더의 이름 (Bbox_1)을 dataset 폴더에다가 생성.
-			(이미 존재한다면 생성하지 않음)
-		2.  원본 데이터 root 폴더의 하위폴더 (Bbox_0001)을 dataset/하위폴더명으로 생성.
-			(마찬가지로 이미 존재한다면 생성하지 않음)
-		3. 하위 폴더 탐색을 시작
-			1. xml 파일을 찾음. file[0] ⇒ 가장 위에 있음.
-			2. xml을 파싱, traffic light를 가지는 사진을 화면에 출력
-			3. 바운딩 박스가 보행등일 경우 ``'z' 버튼`` ⇒ label.txt / img.jpg에 순서에 맞게 저장.
-				**(labeling의 경우 convert 함수를 통해 데이터 포맷을 설정)**
-				> labeling format ==> classe index, center x, center y, ratio w, ratio h
-			5. 만약 라벨링이 잘못된 경우(실수로 차량등을 저장 등..) ``'q' 버튼``을 누르면 현재 탐색하고 있는 하위 폴더를 처음부터 재탐색 (return False)
-			6. 또는 라벨링을 중단하고 싶다면 'p'를 누르면 종료
-			⇒ 재시작시 
-
-					idx = len(os.listdir('dataset/' + mainfolder)) -1
-
-				마지막으로 탐색했던 폴더로 들어가 그 폴더부터 다시 시작.
-			7. 그 외에 현재 사진을 라벨링 하지 않고 계속 진행할 경우 아무 버튼이나 눌러주면 다음 사진으로 넘어감.
 			
 ### 2) 훈련시키기 위한 설정
 - #### custom data train을 위한 파일
