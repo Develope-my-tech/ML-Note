@@ -87,6 +87,7 @@
 			2. xml을 파싱, traffic light를 가지는 사진을 화면에 출력
 			3. 바운딩 박스가 보행등일 경우 ``'z' 버튼`` ⇒ label.txt / img.jpg에 순서에 맞게 저장.
 				**(labeling의 경우 convert 함수를 통해 데이터 포맷을 설정)**
+				> labeling format ==> classe index, center x, center y, ratio w, ratio h
 			5. 만약 라벨링이 잘못된 경우(실수로 차량등을 저장 등..) ``'q' 버튼``을 누르면 현재 탐색하고 있는 하위 폴더를 처음부터 재탐색 (return False)
 			6. 또는 라벨링을 중단하고 싶다면 'p'를 누르면 종료
 			⇒ 재시작시 
