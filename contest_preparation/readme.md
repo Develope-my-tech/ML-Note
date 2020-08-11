@@ -49,7 +49,7 @@
 		추가)  OpenCV 좌표계
 			![enter image description here](https://lh4.googleusercontent.com/ndFH6A225tFLWb7JwjyMmn539c4e1c1CmU7w4hQD6j-uO9K4diKfZ-FDr8LFuKa9oad9IaunhXRz0kD0JoRbeRV4gzUpS0ELyPKMIlpXs9FgvbJZiNGreGvWQAlMnYnRkqzo8Vlh)
 
-#### +) 데이터 가공과 관련된 파일 ⇒ labeling 폴더의 파일 사용.
+#### +) 데이터 가공과 관련된 파일 ⇒ https://github.com/bosl95/MachineLearning_Note/tree/master/contest_preparation/labeling
 
 			
 ### 2) 훈련시키기 위한 설정
