@@ -53,6 +53,13 @@
 
 			
 ### 2) 훈련시키기 위한 설정
+- ### Colab
+	- yolo를 노트북에서도 사용하기 위해서는 **GPU를 사용해야 한다.** 
+	- 이를 위해서 Google에서 지원하는 Colab을 이용해 yolo를 구동시킬 수 있다.
+	- Colab을 세션을 12시간만 유지시켜주기 때문에 저장이 불가하다. ==> 구글 드라이브에 데이터를 저장해 놓고 마운트 해서 쓸 수 있다.
+
+		![image](https://user-images.githubusercontent.com/34594339/89725910-db9d1d80-da4f-11ea-88bf-8ab79c47a555.png)
+
 - #### custom data train을 위한 파일
 	1) obj.data : 학습을 위한 내용이 담긴 파일
 		- classes 개수
@@ -77,7 +84,8 @@
 	7) train.txt : 학습시킬 이미지들의 경로들이 담긴 리스트
 	8) valid.txt : 학습 시 validation 할 이미지들의 경로들이 담긴 리스트
 
-	
+---
+
 1) cfg 설정
 	- custom_yolov4-tiny.cfg 파일 수정
 	![image](https://user-images.githubusercontent.com/34594339/89791590-7b48d180-db5e-11ea-9c98-5e67e557fc33.png)
@@ -96,17 +104,31 @@
 			- [https://codingzzangmimi.tistory.com/76](https://codingzzangmimi.tistory.com/76)
 			-  [https://go-programming.tistory.com/160](https://go-programming.tistory.com/160)
 
-
-- ### Colab
-	- yolo를 노트북에서도 사용하기 위해서는 GPU를 사용해야 한다. 
-	- 이를 위해서 Google에서 지원하는 Colab을 이용해 yolo를 구동시킬 수 있다.
-	- Colab을 세션을 12시간만 유지시켜주기 때문에 저장이 불가하다. ==> 구글 드라이브에 데이터를 저장해 놓고 마운트 해서 쓸 수 있다.
-
-		![image](https://user-images.githubusercontent.com/34594339/89725910-db9d1d80-da4f-11ea-88bf-8ab79c47a555.png)
 		
-    - 실행 명령어
+	- train 명령어
     
-			!./darknet detector train custom/custom.data custom/custom_yolov4-tiny.cfg custom/yolov4-tiny.conv.29 -dont_show
+		  !./darknet detector train custom/custom.data custom/custom_yolov4-tiny.cfg custom/yolov4-tiny.conv.29 -dont_show
     
-       - 원래 map과 loss에 대한 그래프가 나오는데 코랩의 리눅스 상에서는 볼 수 없는 듯하다. 에러가 나기 때문에 dont_show를 추가해 보지 않는 것으로 처리해준다.
+   	
+	  - 원래 map과 loss에 대한 그래프가 나오는데 코랩의 리눅스 상에서는 볼 수 없는 듯하다. 에러가 나기 때문에 dont_show를 추가해 보지 않는 것으로 처리해준다.
 	  - yolov4-tiny.conv.29 : pre-train된 weight 값을 넣어주었다. 첫 training에서 비워두고 사용해도 된다고 함.
+
+
+	- detect 명령어
+		
+		  !./darknet detector test custom/custom.data custom/custom_yolov4-tiny.cfg custom_yolov4-tiny_last.weights -thresh 0.25 -dont_show -ext_output < custom/train.txt > result.txt
+	
+	  - 이때 tarin.txt에 있는 이미지의 경로를 읽어오지 못한다는 에러가 발생했다.
+	  
+			!apt-get install dos2unix 
+			!dos2unix custom/train.txt  # to linux format
+		
+	  train.txt 파일을 윈도우상에서 만들었기 때문에 dos2unix라는 모듈을 이용하여 txt파일을 리눅스상에서 읽을 수 있는 포맷으로 바꾸어주었다.
+	  
+	  - 실행결과
+	  
+	  	![image](https://user-images.githubusercontent.com/34594339/89888430-ea7bff80-dc0a-11ea-8cb0-6601663528bc.png)
+	   
+	  weight를 학습하던 중에 colab 세션이 종료되어서 학습을 제대로 끝마치지 못한 상태였는데,
+	  마지막에 train된 weight 파일로 detection을 한 결과 정확도는 많이 떨어지지만 신호등 객체를 탐지하는 것을 확인할 수 있었다.
+	  
