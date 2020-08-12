@@ -1,5 +1,6 @@
-
-  
+> ## darknet이란?
+c언어로 작성된 물체 인식 오픈 소스 신경망
+- yolo : darknet을 통해 학습된 신경망  
   
 ## yolov4 실행해보기  
 1) dark net의 weight ⇒ yolov4.weights 으로 변환하는 과정.    
