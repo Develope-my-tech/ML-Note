@@ -43,6 +43,10 @@
 
 			마지막으로 탐색했던 폴더로 들어가 그 폴더의 처음부터 다시 시작.
 		6. 그 외에 현재 사진을 라벨링 하지 않고 계속 진행할 경우 아무 버튼이나 눌러주면 다음 사진으로 넘어감.
+	
+
+	![image](https://user-images.githubusercontent.com/34594339/90097605-4b254c80-dd71-11ea-9fe5-24d78e6eb917.png)
+
 
 
 > ## 02. make_train_text.py
