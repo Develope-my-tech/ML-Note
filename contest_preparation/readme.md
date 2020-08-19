@@ -144,4 +144,3 @@ c언어로 작성된 물체 인식 오픈 소스 신경망
 (accuracy 30%  ==> 60% 이상으로 올라갔다.
 
 ![image](https://user-images.githubusercontent.com/34594339/90633401-f138f100-e260-11ea-8d70-d78506eb1e76.png)
-
