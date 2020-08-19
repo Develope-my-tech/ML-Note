@@ -7,5 +7,5 @@ if __name__ == '__main__':
         for f in os.listdir("dataset/" + dataFolder):
             text = open('all_train.txt', 'a')
             for f in glob.glob("dataset/"+dataFolder+"/"+f+"/*.jpg"):
-                print("/content/drive/My Drive/Colab Notebooks/darknet/"+f.replace('\\', '/'))
-                text.write("/content/drive/My Drive/Colab Notebooks/darknet/"+f.replace('\\', '/')+'\n')
+                print("data/obj/"+f.replace('\\', '/'))
+                text.write("data/obj/"+f.replace('\\', '/')+'\n')
