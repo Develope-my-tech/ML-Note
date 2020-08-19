@@ -1,0 +1,4 @@
+- yolov4를 이용하여 학습시키려고 하였으나, 정확도가 계속 30% 미만으로 나왔다.
+- 이를 해결하기 위해 cfg 설정도 바꿔보고 하였으나 바뀌지 않았고 yolov3-tiny를 사용하였더니 정확도가 증가하였다.
+
+  ![image](https://user-images.githubusercontent.com/34594339/90594971-bc0fad00-e226-11ea-90c5-a1cd11f30f0e.png)
