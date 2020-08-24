@@ -210,8 +210,18 @@ darknet을 통해 학습된 신경망
 
 		메모리 초과가 발생했다.
 		⇒ batch의 크기를 조금 줄여주고, subdivision의 크기를 키워주면 된다고 함. (batch : 64, 32, 16 ...  / subdivision : 8, 16, 32, .. )
-		**batch=32 / subdivision=16으로 설정하여 재시도!**
 		
+	- 5차 시도
+	 **batch=32 / subdivision=16으로 설정하여 재시도!**		
+			![image](https://user-images.githubusercontent.com/34594339/91061321-fe8e1b00-e666-11ea-8cfe-24373780e5ea.png)
+	⇒ 416 크기였을 때보다 낮은 정확도,, 
+	
+	- 6차 시도
+	flip : 좌우 구별 감지를 이용. 정확도를 높이는 방법.
+	[Data augmentation](https://nittaku.tistory.com/272)을 이용하여 정확도를 올릴수 있다고 함.
+	max_batches = 5200
+	width, height = 416, 416
+	steps=4000,4500
 
 
 - 남은 과제들
