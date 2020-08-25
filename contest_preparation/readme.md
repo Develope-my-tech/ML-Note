@@ -218,10 +218,13 @@ darknet을 통해 학습된 신경망
 	
 	- 6차 시도
 	flip : 좌우 구별 감지를 이용. 정확도를 높이는 방법.
-	[Data augmentation](https://nittaku.tistory.com/272)을 이용하여 정확도를 올릴수 있다고 함.
-	max_batches = 5200
-	width, height = 416, 416
-	steps=4000,4500
+	[Data augmentation](https://nittaku.tistory.com/272)을 이용하여 정확도를 올릴수 있다고 함.</br>
+	max_batches = 5200 </br>
+	width, height = 416, 416 </br>
+	steps=4000,4500 </br>
+		
+		![image](https://user-images.githubusercontent.com/34594339/91108707-aaf5ee80-e6b3-11ea-9bf6-8eeac227eb68.png)
+
 
 
 - 남은 과제들
