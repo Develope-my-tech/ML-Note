@@ -134,15 +134,15 @@ darknet을 통해 학습된 신경망
          - [커스텀 데이터 셋으로 Yolo 써 보기 1](https://jueun-park.github.io/2018-07-12/yolo-custom-dataset)  
          - [https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects](https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects)  
            
-      - 0810) 추가 참고자료  
-         - [https://murra.tistory.com/115](https://murra.tistory.com/115) ⇒ 가장 도음을 많이 받은 자료.  
+      - 추가 참고자료  
+         - [https://murra.tistory.com/115](https://murra.tistory.com/115) ⇒ 가장 도움을 많이 받은 자료.  
          - [https://codingzzangmimi.tistory.com/76](https://codingzzangmimi.tistory.com/76)  
          - [https://go-programming.tistory.com/160](https://go-programming.tistory.com/160)  
   
         
 2) train 명령어  
       
-      !./darknet detector train custom/custom.data custom/custom_yolov4-tiny.cfg custom/yolov4-tiny.conv.29 -dont_show  
+      	!./darknet detector train custom/custom.data custom/custom_yolov4-tiny.cfg custom/yolov4-tiny.conv.29 -dont_show  
           
      - 원래 map과 loss에 대한 그래프가 나오는데 코랩의 리눅스 상에서는 볼 수 없는 듯하다. 에러가 나기 때문에 dont_show를 추가해 보지 않는 것으로 처리해준다.  
  - yolov4-tiny.conv.29 : pre-train된 weight 값을 넣어주었다. 첫 training에서 비워두고 사용해도 된다고 함.  
