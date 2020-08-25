@@ -1,4 +1,5 @@
 
+
 # [목차]
 ###  1. [Darknet이란 무엇인가? ](#darknet)
 ### 2. [YOLO란 무엇인가? ](#yolo)
@@ -166,67 +167,80 @@ darknet을 통해 학습된 신경망
  
 ## 4) 세부 작업
 
-- ### training에서 정확도 올리기
-	- width랑 height가 클수록 정확도는 올라감
-	- batch_nomalize는 1로 설정되어있는데, 이 말은 안 쓰겠다는 소리. 값을 높여서 정확도를 높이려고 했으나 정확도가 올라가진 않음
-	- subdivisions은 8인 경우 실행되지 않았다. 16으로 설정한 경우에만 실행
-	- cfg 값을 변경해줄때마다 anchor 값 또한 변경되었다. ==> 재설정 필요.
+<details>
+<summary>training에서 정확도 올리기</summary>
+
+
+- width랑 height가 클수록 정확도는 올라감
+- batch_nomalize는 1로 설정되어있는데, 이 말은 안 쓰겠다는 소리. 값을 높여서 정확도를 높이려고 했으나 정확도가 올라가진 않음
+- subdivisions은 8인 경우 실행되지 않았다. 16으로 설정한 경우에만 실행
+- cfg 값을 변경해줄때마다 anchor 값 또한 변경되었다. ==> 재설정 필요.
+
+</div>
+</details>
 	
+<details>
+<summary>횡단보도 데이터셋을 가지고 학습을 실행.</summary>
 
-
-- ### 횡단보도 데이터셋을 가지고 학습을 실행. 	
-	yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨씬 높게 나타났다.
-	(accuracy 30%  ==> 60% 이상으로 올라갔다.)
-	[[횡단보도 데이터 셋 활용 출처]](https://github.com/samuelyu2002/ImVisible)
+yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨씬 높게 나타났다.
+(accuracy 30%  ==> 60% 이상으로 올라갔다.)
+[[횡단보도 데이터 셋 활용 출처]](https://github.com/samuelyu2002/ImVisible)
 
 ![image](https://user-images.githubusercontent.com/34594339/90633401-f138f100-e260-11ea-8d70-d78506eb1e76.png)
 
-- ### 정확도를 올리기 위한 시행 착오
-	- #### 1차 시도 
-		AI Hub에서 받은 데이터 셋 중 신호등이 정면에서 보이는 경우 (시각 장애인이 횡단보도 정면에 서있는 경우 신호등을 인식해야한다고 생각) 라벨링을 하였다. (약 900장)
-	이때 횡단보도 길이가 먼 경우를 고려하여 멀리 있는 신호등도 라벨링을 해주었다.
-	⇒ YoloV4를 사용하여 정확도가 30% 정도로 현저히 떨어지는 인식률이 나타났다.
-	- #### 2차시도
-		낮은 인식률이 1차 시도에서 했던 데이터셋의 라벨링이 잘못 되었다고 판단, 좀 더 잘 정제된 횡단보도 데이터 셋을 학습시키면서 원인을 찾고자하였다. 
-		횡단보도 데이터셋을 이용해 yoloV4를 이용한 학습이 여전히 낮은 인식률을 보여줬다.
-		또한 cfg 설정을 바꿔보는 방법으로 학습을 시켜보았지만 별 소용이 없어, YoloV3-tiny를 사용해보았다.
-		⇒ 이때 yolov4가 원인임을 발견.
-	- #### 3차 시도
-		횡단보도가 yolov3-tiny를 이용하여 60% 이상의 인식률을 보였고, 
-		신호등 데이터셋 또한 다시 라벨링하여 가까운 위치에 있는 신호등 데이터셋만 라벨링을 다시 하였다.
-		
-		- 새로 정제한 신호등 데이터 셋과 YoloV3-tiny를 이용하여 학습 시도
-			![image](https://user-images.githubusercontent.com/34594339/90770202-61f90f80-e32c-11ea-9086-43e0d3269b24.png)
+</div>
+</details>
+
+<details>
+<summary>정확도를 올리기 위한 시행 착오</summary>
+
+- #### 1차 시도 
+	AI Hub에서 받은 데이터 셋 중 신호등이 정면에서 보이는 경우 (시각 장애인이 횡단보도 정면에 서있는 경우 신호등을 인식해야한다고 생각) 라벨링을 하였다. (약 900장)
+이때 횡단보도 길이가 먼 경우를 고려하여 멀리 있는 신호등도 라벨링을 해주었다.
+⇒ YoloV4를 사용하여 정확도가 30% 정도로 현저히 떨어지는 인식률이 나타났다.
+- #### 2차시도
+	낮은 인식률이 1차 시도에서 했던 데이터셋의 라벨링이 잘못 되었다고 판단, 좀 더 잘 정제된 횡단보도 데이터 셋을 학습시키면서 원인을 찾고자하였다. 
+	횡단보도 데이터셋을 이용해 yoloV4를 이용한 학습이 여전히 낮은 인식률을 보여줬다.
+	또한 cfg 설정을 바꿔보는 방법으로 학습을 시켜보았지만 별 소용이 없어, YoloV3-tiny를 사용해보았다.
+	⇒ 이때 yolov4가 원인임을 발견.
+- #### 3차 시도
+	횡단보도가 yolov3-tiny를 이용하여 60% 이상의 인식률을 보였고, 
+	신호등 데이터셋 또한 다시 라벨링하여 가까운 위치에 있는 신호등 데이터셋만 라벨링을 다시 하였다.
 	
-			500 여장 정도의  이미지로 50%의 인식률을 보여줬다.
+	- 새로 정제한 신호등 데이터 셋과 YoloV3-tiny를 이용하여 학습 시도
+		![image](https://user-images.githubusercontent.com/34594339/90770202-61f90f80-e32c-11ea-9086-43e0d3269b24.png)
 
-		- 훈련된 위의 weight를 1차 시도의 데이터 셋까지 추가하여 학습 시도
-			⇒ 48%로  정확도가 떨어졌다. 멀리 있는 신호등 사진의 데이터 셋은 오히려 인식의 정확도를 낮추는 것 같다.
+		500 여장 정도의  이미지로 50%의 인식률을 보여줬다.
 
-	- 4차 시도
-		정확도를 더 올리기 위해  width, height를 608로 설정.
-		anchor도 재정하여 실행하였으나 
-		![image](https://user-images.githubusercontent.com/34594339/91044260-f676b100-e64f-11ea-81f7-50fc95d95e30.png)
+	- 훈련된 위의 weight를 1차 시도의 데이터 셋까지 추가하여 학습 시도
+		⇒ 48%로  정확도가 떨어졌다. 멀리 있는 신호등 사진의 데이터 셋은 오히려 인식의 정확도를 낮추는 것 같다.
 
-		메모리 초과가 발생했다.
-		⇒ batch의 크기를 조금 줄여주고, subdivision의 크기를 키워주면 된다고 함. (batch : 64, 32, 16 ...  / subdivision : 8, 16, 32, .. )
-		
-	- 5차 시도
-	 **batch=32 / subdivision=16으로 설정하여 재시도!**		
-			![image](https://user-images.githubusercontent.com/34594339/91061321-fe8e1b00-e666-11ea-8cfe-24373780e5ea.png)
+- #### 4차 시도
+	정확도를 더 올리기 위해  width, height를 608로 설정.
+	anchor도 재정하여 실행하였으나 
+	![image](https://user-images.githubusercontent.com/34594339/91044260-f676b100-e64f-11ea-81f7-50fc95d95e30.png)
+
+	메모리 초과가 발생했다.
+	⇒ batch의 크기를 조금 줄여주고, subdivision의 크기를 키워주면 된다고 함. (batch : 64, 32, 16 ...  / subdivision : 8, 16, 32, .. )
+	
+- #### 5차 시도
+	 **batch=32 / subdivision=16으로 설정하여 재시도!**
+		 ![image](https://user-images.githubusercontent.com/34594339/91061321-fe8e1b00-e666-11ea-8cfe-24373780e5ea.png)
+	
 	⇒ 416 크기였을 때보다 낮은 정확도,, 
 	
-	- 6차 시도
+- #### 6차 시도
 	flip : 좌우 구별 감지를 이용. 정확도를 높이는 방법.
 	[Data augmentation](https://nittaku.tistory.com/272)을 이용하여 정확도를 올릴수 있다고 함.</br>
 	max_batches = 5200 </br>
 	width, height = 416, 416 </br>
 	steps=4000,4500 </br>
-		
-		![image](https://user-images.githubusercontent.com/34594339/91108707-aaf5ee80-e6b3-11ea-9bf6-8eeac227eb68.png)
+	
+	![image](https://user-images.githubusercontent.com/34594339/91108707-aaf5ee80-e6b3-11ea-9bf6-8eeac227eb68.png)
 
-
+</div>
+</details>
 
 - 남은 과제들
-	- [ ] 횡단보도 정확도 올리기 
+	- [x] 횡단보도 정확도 올리기 
 	- [ ] 횡단보도 + 신호등 데이터셋을 모두 합친 학습 모델 만들기.
