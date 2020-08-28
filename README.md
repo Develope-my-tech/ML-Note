@@ -42,8 +42,8 @@ RNN의 Embedding layer, dense layer 등을 이용하여 학습 모델 구축.
 	KoNLPy 패키지를 사용하여 모델 구축, 테스트
 
 ### contest_preparation
-1. yolov4를 이용하여 object detection 실습
-2. yolov4를 커스텀 데이터 셋을 이용한 훈련 과정 준비
+1. yolov3를 이용하여 object detection 실습
+2. yolov3를 커스텀 데이터 셋을 이용한 훈련 과정 준비
 	1. 데이터 셋 가져오기
 	2. 데이터 셋 분류하기 ⇒ 이를 위한 프로그램 작성.
 	3. 데이터 셋 라벨링 하기 ⇒ 데이터 포맷 변환
