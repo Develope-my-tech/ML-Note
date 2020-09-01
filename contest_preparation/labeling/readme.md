@@ -1,4 +1,5 @@
 
+
 > ## 01. make_labeling.py 
 - classes : 클래스 리스트
 - cls : 데이터를 분류할 클래스 이름        
@@ -66,7 +67,7 @@
     
         
 > ## 03. division_dataset.py 
-all_train.txt로 생성된 모든 이미지의 절대 경로를 8:2의 비율로 나눠, train data와 validation data로 분리한다. 이때 custom 폴더 안에 저장하므로 실행 전 custom 폴더가 존재해야한다.        
+all_train.txt로 생성된 모든 이미지의 절대 경로를 8:2의 비율로 나눠, train data와 validation data로 분리한다. 이때 custom 폴더 안에 저장하므로 실행 전 custom 폴더가 존재해야한다.    
         
 - 전체 결과        
         
@@ -82,3 +83,24 @@ all_train.txt로 생성된 모든 이미지의 절대 경로를 8:2의 비율로
 		![image](https://user-images.githubusercontent.com/34594339/90980085-26f91500-e594-11ea-8208-56fa07f77410.png)
 
 	- **53% ⇒ 54%로 상승. 똑같은 데이터임에도 불구하고 처음부터 다시 학습시키니 정확도가 제대로 상승하는 것을 확인할 수 있었다.**
+
+
+> ## 04. make_train_text2.py 
+폴더가 **clear / neutral / ambiguous** 로 나누어져있다.
+따라서 이에 맞는 경로를 다시 text 파일로 만들어 주어야한다.
+이를 위한 파일을 만들었다.
+
+1. dataset 폴더 안에 clear / neutral / ambiguous 를 넣어준다.
+2. make_train.text2.py 를 돌린다 (all_train.txt가 존재하면 안된다)
+3. all_train.txt 파일이 생성된다.
+
+- 예시  
+      
+	    data/obj/ambiguous/MP_SEL_002944.jpg  
+	    data/obj/ambiguous/MP_SEL_002946.jpg  
+	    data/obj/ambiguous/MP_SEL_002959.jpg  
+	    data/obj/ambiguous/MP_SEL_003012.jpg  
+	    data/obj/ambiguous/MP_SEL_003060.jpg  
+	    data/obj/ambiguous/MP_SEL_003127.jpg  
+	    data/obj/ambiguous/MP_SEL_003171.jpg  
+	    data/obj/ambiguous/MP_SEL_003184.jpg
