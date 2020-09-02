@@ -16,12 +16,12 @@ while True:
         frame = cv2.resize(frame, dsize=(416, 416), interpolation=cv2.INTER_CUBIC)
 
         # 각도 조정
-        # width, height, _ = frame.shape
-        # matrix = cv2.getRotationMatrix2D((height / 2, width / 2), 270, 1)
-        # frame = cv2.warpAffine(frame, matrix, (height, width))
+        width, height, _ = frame.shape
+        matrix = cv2.getRotationMatrix2D((height / 2, width / 2), 270, 1)
+        frame = cv2.warpAffine(frame, matrix, (height, width))
 
         cv2.imwrite("frame.jpg", frame)
-        frame = Image.open('ex.jpg')
+        frame = Image.open('frame.jpg')
 
         # 회전
         # frame = frame.rotate(270)
