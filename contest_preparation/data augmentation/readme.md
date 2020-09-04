@@ -5,7 +5,7 @@
   
 <details>  
 <summary>참고 자료</summary>  
-  
+<br>
 1. https://github.com/Paperspace/DataAugmentationForObjectDetection    
 2. albumentations Library 이용하기    
    https://github.com/albumentations-team/albumentations    
@@ -17,7 +17,7 @@
   
  </div>  
 </details>  
-  
+  <br>
 - [x] 신호등 데이터셋 정사각형 형태로 학습  
 - [ ]  신호등 데이터셋을 실제 횡단보도 사진의 크기와 유사하게 resize해서 학습  
   
@@ -27,7 +27,7 @@ dir에 확인할 라벨링 데이터 폴더 이름을 넣어주면 라벨링된 
   
 <details>  
 <summary>1차 Data augmentation</summary>  
-  
+<br>
 - 추가할 Augmentation Dataset  
 1. 정사각형 사이즈의 횡단보도  데이터 (패딩)  
 2. 정사각형 사이즈의 신호등 데이터 (패딩)  
@@ -59,10 +59,9 @@ https://bhban.tistory.com/91
   
 <details>  
 <summary>2차 Data augmentation</summary>  
-  
+<br>  
 정사각형 형태의 신호등을 그냥 학습시켜도 신호등이 가깝지 않으면 인식이 잘 되지 않았다.  
-그래서 우리가 만든 신호등 데이터 셋을 횡단보도 데이터셋안의  신호등 데이터와 유사한 크기로 만들어주었다.  
-
+그래서 우리가 만든 신호등 데이터 셋을 횡단보도 데이터셋안의  신호등 데이터와 유사한 크기로 만들어주었다. <br>
 
 > # resize300x300.py  
 
