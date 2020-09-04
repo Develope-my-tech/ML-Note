@@ -6,7 +6,7 @@ import numpy as np
 yolo = YOLO(model_path='keras_yolo3/model_data/square_tiny.h5', classes_path='classes.txt', anchors_path='keras_yolo3/model_data/anchors.txt')
 
 
-cap = cv2.VideoCapture('IMG_2504.MOV')
+cap = cv2.VideoCapture('IMG_2494.MOV')
 
 while True:
     ret, frame = cap.read()

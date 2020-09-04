@@ -1,7 +1,6 @@
-
-
 ## Data augmentation  
 
+신호등 + 횡단보도 YOLO  모델 정확도 올리기
 
 <details>
 <summary>참고 자료</summary>
@@ -17,6 +16,16 @@
 
  </div>
 </details>
+
+- [x] 신호등 데이터셋 정사각형 형태로 학습
+- [ ]  신호등 데이터셋을 실제 횡단보도 사진의 크기와 유사하게 resize해서 학습
+
+## check_label
+transform을 여러개 해야하기 때문에 라벨링 확인이 필수
+dir에 확인할 라벨링 데이터 폴더 이름을 넣어주면 라벨링된 이미지를 띄워준다.
+
+<details>
+<summary>1차 Data augmentation</summary>
 
 - 추가할 Augmentation Dataset
 1. 정사각형 사이즈의 횡단보도  데이터 (패딩)
@@ -41,6 +50,26 @@ https://bhban.tistory.com/91
 
 ⇒ 이 경우는 convert 함수(꼭지점 ⇒ yolo  포맷 변환)에 shape를 전달해줄때 w, h 가 뒤바뀐다.
 
-## check_label
-transform을 여러개 해야하기 때문에 라벨링 확인이 필수
-dir에 확인할 라벨링 데이터 폴더 이름을 넣어주면 라벨링된 이미지를 띄워준다.
+ </div>
+</details>
+
+<details>
+<summary>2차 Data augmentation</summary>
+
+## 
+정사각형 형태의 신호등을 그냥 학습시켜도 신호등이 가깝지 않으면 인식이 잘 되지 않았다.
+그래서 우리가 만든 신호등 데이터 셋을 횡단보도 데이터셋안의  신호등 데이터와 유사한 크기로 만들어주었다.
+
+1. 정사각형 형태로 리사이즈된 신호등 데이터셋 A
+	<image src="https://user-images.githubusercontent.com/34594339/92205369-81617200-eec0-11ea-9702-035496b8ccca.png" width="50%">
+
+	<예시> 이미지 크기 : 822*822
+2. A' = A를 300*300 크기로 바꿔준다. (횡단보도 데이터셋의 신호등 데이터의 평균 크기로 잡았다.)
+	 <image src="https://user-images.githubusercontent.com/34594339/92205483-bcfc3c00-eec0-11ea-9e88-7162df41d5c8.png" width="50%">
+	<예시> 876*876 크기 안에 300*300 으로 리사이즈된 신호등 데이터 
+3. A'를 876*876 크기안에 붙여준다. ⇒ yolo에서는 416*416으로 학습된다.
+	<image src="https://user-images.githubusercontent.com/34594339/92205583-f8970600-eec0-11ea-8503-49b28613b4fc.png" width="50%">
+	<예시> 876*876 사이즈에 중앙에 위치시키고, yolo 학습사이즈인 416*416으로 변형했을때의 모습
+ 
+ </div>
+</details>
