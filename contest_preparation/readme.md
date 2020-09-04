@@ -1,4 +1,5 @@
 
+
 # [목차]
 ###  1. [Darknet이란 무엇인가? ](#darknet)
 ### 2. [YOLO란 무엇인가? ](#yolo)
@@ -53,6 +54,7 @@ darknet을 통해 학습된 신경망
    속도는 tiny가 훨씬 빠르다.  
 
 ### ⇒ YOLOV4를 이용해 커스텀 데이터 셋을 만들려고 하였으나, YOLOV3를 이용한 정확도가 훨씬 높아 YOLOV3-tiny를 사용하기로 함.
+  <br>
   
 # Custom Dataset을 이용한 학습모델 구현
 
@@ -173,7 +175,7 @@ darknet을 통해 학습된 신경망
 
 <details>
 <summary>training에서 정확도 올리기</summary>
-
+<br>
 
 - width랑 height가 클수록 정확도는 올라감
 - batch_nomalize는 1로 설정되어있는데, 이 말은 안 쓰겠다는 소리. 값을 높여서 정확도를 높이려고 했으나 정확도가 올라가진 않음
@@ -185,6 +187,7 @@ darknet을 통해 학습된 신경망
 	
 <details>
 <summary>횡단보도 데이터셋을 가지고 학습을 실행.</summary>
+<br>
 
 yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨씬 높게 나타났다.
 (accuracy 30%  ==> 60% 이상으로 올라갔다.)
@@ -197,6 +200,7 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 
 <details>
 <summary>정확도를 올리기 위한 시행 착오</summary>
+<br>
 
 - #### 1차 시도 
 	AI Hub에서 받은 데이터 셋 중 신호등이 정면에서 보이는 경우 (시각 장애인이 횡단보도 정면에 서있는 경우 신호등을 인식해야한다고 생각) 라벨링을 하였다. (약 900장)
@@ -247,9 +251,11 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 
 <details>
 <summary>횡단보도/신호등 탐지 모델 만들기</summary>
+<br>
 
 <details>
 <summary>[08/28 ~ 08/30 학습 시도 과정]</summary>
+<br>
 
 1. 첫번째 시도
  중국데이터 + 우리 데이터 전부 : 초반에 터짐 / 아예 안됨
@@ -273,12 +279,14 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 
 <details>
 <summary>[데이터셋을 조정해보기]</summary>
+<br>
 
 - [ ]  횡단보도 데이터셋의 신호등을 지우기
 - [ ] 횡단보도 데이터셋의 신호등까지 라벨링해서 하기
 
 <details>
 <summary>[1차 시도]</summary>
+<br>
 
 1. 횡단보도 데이터 셋 : 이미 라벨링 된 데이터 사용. 이 데이터셋의 신호등은 라벨링이 되어있지 않아 일단 사용하지 않기로 함
 2. 신호등 데이터셋 : **신호등만 보이도록 이미지를 자름**
@@ -296,7 +304,7 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 	- 숫자도 라벨링 하지 않음.
 
 	
-	<image src="https://user-images.githubusercontent.com/34594339/91948589-dbd0c600-ed3a-11ea-97f5-a894caba618e.png" width="90%">
+		<image src="https://user-images.githubusercontent.com/34594339/91948589-dbd0c600-ed3a-11ea-97f5-a894caba618e.png" width="80%">
 
 
 - 결과 : 횡단보도 인식은 매우 잘됨 그러나 신호등을 거의 잡지 못함 
