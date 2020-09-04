@@ -60,7 +60,7 @@ https://bhban.tistory.com/91
 정사각형 형태의 신호등을 그냥 학습시켜도 신호등이 가깝지 않으면 인식이 잘 되지 않았다.    
 그래서 우리가 만든 신호등 데이터 셋을 횡단보도 데이터셋안의  신호등 데이터와 유사한 크기로 만들어주었다.   
 
-> # resize300x300.py   
+> ## resize300x300.py   
 1. 정사각형 형태로 리사이즈된 신호등 데이터셋 A    
     
    <image src="https://user-images.githubusercontent.com/34594339/92205369-81617200-eec0-11ea-9702-035496b8ccca.png" width="50%">    
