@@ -51,13 +51,23 @@ def read_train_dataset(dir):
 
     return images, annotations # Image배열과 라벨배열 반환
 
+
+def insert(save_path, img, img_name):
+    img2 = cv2.imread('876.jpg')  # 876x876 이미지 (검은 이미지)
+
+    w, h, c = img.shape  # 삽입할 이미지의 row, col, channel정보
+
+    img2[:w, :h] = img
+    cv2.imwrite(save_path + img_name+".jpg", img2)
+
+
 import imgaug as ia
 from imgaug import augmenters as iaa
 
 ia.seed(1)
 
-dir = 'neutral/'    # 정사각형 형태의 신호등 데이터셋 폴더
-save = 'resize_neutral/'
+dir = 'clear/'    # 정사각형 형태의 신호등 데이터셋 폴더
+save = 'resize_clear/'
 imgName = []
 images, annotations = read_train_dataset(dir)
 
@@ -85,12 +95,8 @@ for idx in range(len(images)):
             label = str(after.label)
             box = [after.x1, after.y1, after.x2, after.y2]
 
-            # convert yolo format
-            x, y, _ = image_aug.shape
-            box = convert([y, x], box)
-
+            box = convert([876, 876], box)
 
             f.write(label + " " + " ".join(box))
         f.close()
-
-    cv2.imwrite(save + imgName[idx] + ".jpg", image_aug)
+    insert(save, image_aug, imgName[idx])
