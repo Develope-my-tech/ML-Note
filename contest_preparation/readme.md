@@ -1,9 +1,4 @@
 
-
-
-
-
-
 # [목차]
 ###  1. [Darknet이란 무엇인가? ](#darknet)
 ### 2. [YOLO란 무엇인가? ](#yolo)
@@ -286,7 +281,10 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 <summary>[1차 시도]</summary>
 
 1. 횡단보도 데이터 셋 : 이미 라벨링 된 데이터 사용. 이 데이터셋의 신호등은 라벨링이 되어있지 않아 일단 사용하지 않기로 함
-2. 신호등 데이터셋 : Bbox1(AI hub) / 구글링한 신호등 데이터 / 직접 찍은 동영상 라벨링
+2. 신호등 데이터셋 : **신호등만 보이도록 이미지를 자름**
+	- Bbox1(AI hub) 
+	- 구글링한 신호등 데이터 
+	- 직접 찍은 동영상 라벨링
 3. 라벨 :  [cross walk, traffic light] ⇒ [cross walk, red light, green light, black]으로 바꿈
 4. 폴더 분류 
 	-  Clear(확실)
@@ -307,20 +305,7 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 </div>
 </details>
 
-
-<details>
-<summary>[2차 시도]</summary>
-
-
-1. 횡단보도 사진을 정사각형 형태로 변환
-2. 신호등 사진을 정사각형 형태로 변환
-3. 신호등 사진을 작게 줄여서 정사각형 형태로 변환
-⇒ 세 데이터셋을 추가하여 데이터셋 학습을 진행.
-
-	<image src="https://user-images.githubusercontent.com/34594339/92190089-2d906200-ee9b-11ea-81ae-4c6126a731a5.png" width="90%">
-
-</div>
-</details>
+### 이 이후부터는 [Data Augmentation](https://github.com/bosl95/MachineLearning_Note/tree/master/contest_preparation/data%20augmentation)에 정리
 
 </div>
 </details>

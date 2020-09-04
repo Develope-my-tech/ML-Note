@@ -1,8 +1,10 @@
+
 ## Data augmentation 
 신호등 + 횡단보도 YOLO  모델 정확도 올리기    
     
 <details>    
 <summary>참고 자료</summary>    
+<br>
 
 1. https://github.com/Paperspace/DataAugmentationForObjectDetection      
 2. albumentations Library 이용하기      
@@ -23,7 +25,8 @@ dir에 확인할 라벨링 데이터 폴더 이름을 넣어주면 라벨링된 
     
 <details>    
 <summary>1차 Data augmentation</summary>    
-  
+<br>
+    
 - 추가할 Augmentation Dataset    
 1. 정사각형 사이즈의 횡단보도  데이터 (패딩)    
 2. 정사각형 사이즈의 신호등 데이터 (패딩)    
@@ -50,13 +53,17 @@ https://bhban.tistory.com/91
 ![image](https://user-images.githubusercontent.com/34594339/91967657-78e92a00-ed4e-11ea-986c-71bebdead81b.png)    
     
 ⇒ 이 경우는 convert 함수(꼭지점 ⇒ yolo  포맷 변환)에 shape를 전달해줄때 w, h 가 뒤바뀐다.    
-    
+
+
+<image src="https://user-images.githubusercontent.com/34594339/92190089-2d906200-ee9b-11ea-81ae-4c6126a731a5.png" width="90%"> 
+
  </div>    
 </details>    
     
 <details>    
 <summary>2차 Data augmentation</summary>    
 <br>
+	
 정사각형 형태의 신호등을 그냥 학습시켜도 신호등이 가깝지 않으면 인식이 잘 되지 않았다.    
 그래서 우리가 만든 신호등 데이터 셋을 횡단보도 데이터셋안의  신호등 데이터와 유사한 크기로 만들어주었다.   
 
@@ -77,7 +84,6 @@ https://bhban.tistory.com/91
     
    <예시> 876x876 사이즈에 중앙에 위치시키고, yolo 학습사이즈인 416x416으로 변형했을때의 모습    
      
-   
     
  </div>    
 </details>

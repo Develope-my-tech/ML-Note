@@ -24,7 +24,7 @@ def read_anntation(file_name,img_shape):
         y2 = y+(h/2)
 
 
-        bounding_box = [idsdnt(info[0]), x1, y1, x2, y2]
+        bounding_box = [int(info[0]), x1, y1, x2, y2]
         bounding_box_list.append(bounding_box)
 
     return bounding_box_list, file_name
