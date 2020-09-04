@@ -1,6 +1,7 @@
 
 
 
+
 > ## 01. make_labeling.py 
 - classes : 클래스 리스트
 - cls : 데이터를 분류할 클래스 이름        
@@ -64,7 +65,8 @@
     
     
 ### ++) **수정**   :  절대 경로 대신 상대 경로로 바꾸어주었다. darknet train을 실행하는 현재 경로에서 상대 경로를 찾아서 학습함으로 그에 맞게 설정해주면 된다.    
-   ![image](https://user-images.githubusercontent.com/34594339/90631267-61457800-e25d-11ea-8497-53762839a6f9.png)    
+
+   <image src= "https://user-images.githubusercontent.com/34594339/90631267-61457800-e25d-11ea-8497-53762839a6f9.png" width=40% >
     
         
 > ## 03. division_dataset.py 
@@ -84,19 +86,20 @@ shuffled.txt로 생성된 모든 이미지의 절대 경로를 8:2의 비율로 
 		⇒** 정확도가 45%로 약 10%가 내려갔다. **
 
 - [x] 모든 데이터셋을 합쳐서 처음부터 학습시켜보기
-		![image](https://user-images.githubusercontent.com/34594339/90980085-26f91500-e594-11ea-8208-56fa07f77410.png)
+
+	<image src="https://user-images.githubusercontent.com/34594339/90980085-26f91500-e594-11ea-8208-56fa07f77410.png" width="78%">
 
 	- **53% ⇒ 54%로 상승. 똑같은 데이터임에도 불구하고 처음부터 다시 학습시키니 정확도가 제대로 상승하는 것을 확인할 수 있었다.**
 
 
-> ## 04. make_train_text2.py 
-폴더가 **clear / neutral / ambiguous** 로 나누어져있다.
-따라서 이에 맞는 경로를 다시 text 파일로 만들어 주어야한다.
-이를 위한 파일을 만들었다.
+> ## 04. make_train_text_last.py 
+all_train.txt를 만드는 프로그램이 할때마다 지속적으로 수정이 되어,
+폴더이름과 상위 경로만 지정해주면 all_train.txt 를 자동 생성해주는 코드로 수정. (최종 버전)
 
-1. dataset 폴더 안에 clear / neutral / ambiguous 를 넣어준다.
-2. make_train.text2.py 를 돌린다 (all_train.txt가 존재하면 안된다)
-3. all_train.txt 파일이 생성된다.
+1. 우선 all_train.txt 파일이 존재한다면 지우고 시작한다.
+2. folder : 내가 사용할 데이터 셋의 폴더 경로
+3. yolo_path : 상위 경로를 지정해준다. ( yolo_path+img.jpg 로 all_train.txt에 텍스트가 추가된다. 그에 맞게 지정)
+4. 만약 추가할 데이터 셋 폴더가 여러개라면 folder와 yolo_path만 수정해서 계속 all_train.txt에 추가해준다.
 
 - 예시  
       

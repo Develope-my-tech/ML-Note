@@ -3,6 +3,7 @@
 
 
 
+
 # [목차]
 ###  1. [Darknet이란 무엇인가? ](#darknet)
 ### 2. [YOLO란 무엇인가? ](#yolo)
@@ -72,7 +73,7 @@ darknet을 통해 학습된 신경망
    yolo에서 데이터 셋을 훈련시킬 때 label의 좌표 ⇒ (center x, center y, ratio w, ratio h) 좌표  
            
         
- > ### COCO 데이터 포맷은 bouding box 값이  **x, y, w, h**  값으로 구성되어있다.하지만 YOLO에서의 포맷은 클래스 번호와  **전체 영상 크기에 대한 center x, center y, w, h 비율 값**으로 구성된다.  
+ > #### COCO 데이터 포맷은 bouding box 값이  **x, y, w, h**  값으로 구성되어있다.하지만 YOLO에서의 포맷은 클래스 번호와  **전체 영상 크기에 대한 center x, center y, w, h 비율 값**으로 구성된다.  
   
  -  출처: [https://eehoeskrap.tistory.com/367](https://eehoeskrap.tistory.com/367)     
  - 참고 : [<보행등 사진만 분류하기>](https://github.com/Guanghan/darknet/blob/master/scripts/convert.py) 
@@ -125,7 +126,7 @@ darknet을 통해 학습된 신경망
 ### 7) ``train.txt`` : 학습시킬 이미지들의 경로들이 담긴 리스트  
 ### 8) ``valid.txt`` : 학습 시 validation 할 이미지들의 경로들이 담긴 리스트  
   
----  
+---
 
 ## 3) 학습 모델 구현하기  
  
@@ -160,8 +161,8 @@ darknet을 통해 학습된 신경망
        !./darknet detector test custom/custom.data custom/custom_yolov4-tiny.cfg custom_yolov4-tiny_last.weights -thresh 0.25 -dont_show -ext_output < custom/train.txt > result.txt  
  - 이때 tarin.txt에 있는 이미지의 경로를 읽어오지 못한다는 에러가 발생했다.  
        
-         !apt-get install dos2unix   
-         !dos2unix custom/train.txt  # to linux format  
+      !apt-get install dos2unix   
+       !dos2unix custom/train.txt  # to linux format  
   train.txt 파일을 윈도우상에서 만들었기 때문에 dos2unix라는 모듈을 이용하여 txt파일을 리눅스상에서 읽을 수 있는 포맷으로 바꾸어주었다.  
        
    - 실행결과  
@@ -277,27 +278,49 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 <details>
 <summary>[데이터셋을 조정해보기]</summary>
 
-- ### 1차 시도
-	1. 횡단보도 데이터 셋 : 이미 라벨링 된 데이터 사용. 이 데이터셋의 신호등은 라벨링이 되어있지 않아 일단 사용하지 않기로 함
-	2. 신호등 데이터셋 : Bbox1(AI hub) / 구글링한 신호등 데이터 / 직접 찍은 동영상 라벨링
-	3. 라벨 :  [cross walk, traffic light] ⇒ [cross walk, red light, green light, black]으로 바꿈
-	4. 폴더 분류 
-		-  Clear(확실)
-		-  neutral(중간) : 빛 번짐 없음. 형체가 확실한데 거리가 가깝고 빛번짐 살짝 허용함 (빛번짐이 심하면은 3번으로)    
-		- ambiguous(애매) : 거리가 일정이상 멀어졌다고 생각이 들면 형체와 상관없이 3번 빛은 번졌는데 거리가 가깝고 박스 형체가 보이는 경우는 OK
-	5. 신호등 라벨링 범위
-		- 어떤 신호등이든 빨간불/파란불  2칸만 라벨링
-		- 화살표는 라벨링 하지 않음
-		- 숫자도 라벨링 하지 않음.
-	
-			![image](https://user-images.githubusercontent.com/34594339/91948589-dbd0c600-ed3a-11ea-97f5-a894caba618e.png)
+- [ ]  횡단보도 데이터셋의 신호등을 지우기
+- [ ] 횡단보도 데이터셋의 신호등까지 라벨링해서 하기
 
-		- 결과 : 횡단보도 인식은 매우 잘됨 그러나 신호등을 거의 잡지 못함 
-					신호등이 매우 크게 잡힌 상태로 라벨링 되었기 때문인듯함.
+<details>
+<summary>[1차 시도]</summary>
+
+1. 횡단보도 데이터 셋 : 이미 라벨링 된 데이터 사용. 이 데이터셋의 신호등은 라벨링이 되어있지 않아 일단 사용하지 않기로 함
+2. 신호등 데이터셋 : Bbox1(AI hub) / 구글링한 신호등 데이터 / 직접 찍은 동영상 라벨링
+3. 라벨 :  [cross walk, traffic light] ⇒ [cross walk, red light, green light, black]으로 바꿈
+4. 폴더 분류 
+	-  Clear(확실)
+	-  neutral(중간) : 빛 번짐 없음. 형체가 확실한데 거리가 가깝고 빛번짐 살짝 허용함 (빛번짐이 심하면은 3번으로)    
+	- ambiguous(애매) : 거리가 일정이상 멀어졌다고 생각이 들면 형체와 상관없이 3번 빛은 번졌는데 거리가 가깝고 박스 형체가 보이는 경우는 OK
+5. 신호등 라벨링 범위
+	- 어떤 신호등이든 빨간불/파란불  2칸만 라벨링
+	- 화살표는 라벨링 하지 않음
+	- 숫자도 라벨링 하지 않음.
+
 	
-- ### 2차 시도 (예정)
-	1.  횡단보도 데이터셋의 신호등을 지우기
-	2.  횡단보도 데이터셋의 신호등까지 라벨링해서 하기
+	<image src="https://user-images.githubusercontent.com/34594339/91948589-dbd0c600-ed3a-11ea-97f5-a894caba618e.png" width="90%">
+
+
+- 결과 : 횡단보도 인식은 매우 잘됨 그러나 신호등을 거의 잡지 못함 
+				신호등이 매우 크게 잡힌 상태로 라벨링 되었기 때문인듯함.
+
+</div>
+</details>
+
+
+<details>
+<summary>[2차 시도]</summary>
+
+
+1. 횡단보도 사진을 정사각형 형태로 변환
+2. 신호등 사진을 정사각형 형태로 변환
+3. 신호등 사진을 작게 줄여서 정사각형 형태로 변환
+⇒ 세 데이터셋을 추가하여 데이터셋 학습을 진행.
+
+	<image src="https://user-images.githubusercontent.com/34594339/92190089-2d906200-ee9b-11ea-81ae-4c6126a731a5.png" width="90%">
+
+</div>
+</details>
+
 </div>
 </details>
 
@@ -305,6 +328,6 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 </details>
 
 - 남은 과제들
-	- [x] 횡단보도 정확도 올리기 
-	- [x] 횡단보도 + 신호등 데이터셋을 모두 합친 학습 모델 만들기.
-	- [ ]  횡단보도 / 신호등 을 탐지하는 학습 모델 정확도 올리기
+- [x] 횡단보도 정확도 올리기 
+- [x] 횡단보도 + 신호등 데이터셋을 모두 합친 학습 모델 만들기.
+- [ ]  횡단보도 / 신호등 을 탐지하는 학습 모델 정확도 올리기
