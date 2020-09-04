@@ -82,6 +82,7 @@ darknet을 통해 학습된 신경망
 내가 사용한 데이터셋은 COCO 데이터는 아니지만 이 글들을 보면서 참고해서 데이터 포맷을 맞춰줬다.  
   
 	 추가)  OpenCV 좌표계 
+	 
 	 ![enter image description here](https://lh4.googleusercontent.com/ndFH6A225tFLWb7JwjyMmn539c4e1c1CmU7w4hQD6j-uO9K4diKfZ-FDr8LFuKa9oad9IaunhXRz0kD0JoRbeRV4gzUpS0ELyPKMIlpXs9FgvbJZiNGreGvWQAlMnYnRkqzo8Vlh)  
 
 
