@@ -55,7 +55,7 @@ https://bhban.tistory.com/91
 ⇒ 이 경우는 convert 함수(꼭지점 ⇒ yolo  포맷 변환)에 shape를 전달해줄때 w, h 가 뒤바뀐다.    
 
 
-<image src="https://user-images.githubusercontent.com/34594339/92190089-2d906200-ee9b-11ea-81ae-4c6126a731a5.png" width="90%"> 
+<image src="https://user-images.githubusercontent.com/34594339/92190089-2d906200-ee9b-11ea-81ae-4c6126a731a5.png" width="70%"> 
 
  </div>    
 </details>    
