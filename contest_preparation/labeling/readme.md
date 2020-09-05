@@ -2,7 +2,11 @@
 
 
 
-> ## 01. make_labeling.py 
+## 01. make_labeling.py 
+<br>
+<details>    
+<summary>Document</summary> 
+<br>
 - classes : 클래스 리스트
 - cls : 데이터를 분류할 클래스 이름        
 - main folder : 학습할 데이터 셋이 들어가있는 폴더.        
@@ -27,7 +31,10 @@
             ...        
         2) Bbox_0002        
          ...        
-        
+   <br>
+   </div>
+   </details>
+   <br> 
 - 기본 기능        
   1. 원본 데이터 root 폴더의 이름 (Bbox_1)을 dataset 폴더에다가 생성.        
       (이미 존재한다면 생성하지 않음)        
@@ -51,17 +58,22 @@
        
  6. 그 외에 현재 사진을 라벨링 하지 않고 계속 진행할 경우 아무 버튼이나 눌러주면 다음 사진으로 넘어감.        
              
-           
- - 실행화면          
- ![image](https://user-images.githubusercontent.com/34594339/90097605-4b254c80-dd71-11ea-9fe5-24d78e6eb917.png)        
+ <br>
+<details>    
+<summary>실행화면</summary> 
+<br>          
+<image src="https://user-images.githubusercontent.com/34594339/90097605-4b254c80-dd71-11ea-9fe5-24d78e6eb917.png" width="80%">
+<br>
+</div>
+</details> 
+ <br>
         
-        
-> ## 02. make_train_text.py 
+## 02. make_train_text.py 
 분류된 이미지 데이터 셋들의 경로를 저장할 train.txt 파일을 생성.        
 이때 절대 경로로 생성을 해주었는데, 이 경로는 Google Colab에서 사용할 수 있는 절대 경로로 지정하였다.        
         
 - **실행결과** : all_train.txt 파일 생성. 밑의 결과는 all_train.txt에 저장된 내용.        
-![image](https://user-images.githubusercontent.com/34594339/89789461-982fd580-db5b-11ea-85a1-68c92daa20c7.png)    
+<image src="https://user-images.githubusercontent.com/34594339/89789461-982fd580-db5b-11ea-85a1-68c92daa20c7.png" width="80%">
     
     
 ### ++) **수정**   :  절대 경로 대신 상대 경로로 바꾸어주었다. darknet train을 실행하는 현재 경로에서 상대 경로를 찾아서 학습함으로 그에 맞게 설정해주면 된다.    
@@ -69,7 +81,7 @@
    <image src= "https://user-images.githubusercontent.com/34594339/90631267-61457800-e25d-11ea-8497-53762839a6f9.png" width=40% >
     
         
-> ## 03. division_dataset.py 
+## 03. division_dataset.py 
 ### all_train.txt를 ``random.shuffle() 함수``를 통해 데이터를 섞어준다.
 ### ⇒ ``연속적인 데이터셋``이 섞여있는 경우엔 ``데이터의 과적합이 발생``할 수 있기 때문
 shuffled.txt로 생성된 모든 이미지의 절대 경로를 8:2의 비율로 나눠, train data와 validation data로 분리한다. 
@@ -77,22 +89,21 @@ shuffled.txt로 생성된 모든 이미지의 절대 경로를 8:2의 비율로 
         
 - 전체 결과        
         
-   ![image](https://user-images.githubusercontent.com/34594339/89789807-0ffe0000-db5c-11ea-9266-b7a23b01e7c9.png)
+   <image src="https://user-images.githubusercontent.com/34594339/89789807-0ffe0000-db5c-11ea-9266-b7a23b01e7c9.png" width="40%">
 
 
  - [x] 전에 만들어놓은 신호등 데이터셋으로 학습 다시 시켜보기    
  - [x] 예지가 만들어놓은 신호등 데이터셋으로 학습 다시 시켜보기
 	- 미리 학습시켜놓았던 weight 파일(정확도 53%)에  남은 데이터 파일을 학습시켜보았다.
-		⇒** 정확도가 45%로 약 10%가 내려갔다. **
-
+		⇒ 정확도가 45%로 약 10%가 내려갔다.```
 - [x] 모든 데이터셋을 합쳐서 처음부터 학습시켜보기
 
-	<image src="https://user-images.githubusercontent.com/34594339/90980085-26f91500-e594-11ea-8208-56fa07f77410.png" width="78%">
+	<image src="https://user-images.githubusercontent.com/34594339/90980085-26f91500-e594-11ea-8208-56fa07f77410.png" width="76%">
 
-	- **53% ⇒ 54%로 상승. 똑같은 데이터임에도 불구하고 처음부터 다시 학습시키니 정확도가 제대로 상승하는 것을 확인할 수 있었다.**
+	- **45% ⇒ 54%로 상승. 똑같은 데이터임에도 불구하고 처음부터 다시 학습시키니 정확도가 제대로 상승하는 것을 확인할 수 있었다.**
 
 
-> ## 04. make_train_text_last.py 
+## 04. make_train_text_last.py 
 all_train.txt를 만드는 프로그램이 할때마다 지속적으로 수정이 되어,
 폴더이름과 상위 경로만 지정해주면 all_train.txt 를 자동 생성해주는 코드로 수정. (최종 버전)
 

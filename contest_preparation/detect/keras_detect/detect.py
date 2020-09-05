@@ -3,11 +3,11 @@ from PIL import Image
 from yolo import YOLO
 import numpy as np
 
-yolo = YOLO(model_path='keras_yolo3/model_data/square_tiny.h5', classes_path='classes.txt', anchors_path='keras_yolo3/model_data/anchors.txt')
+yolo = YOLO(model_path='keras_yolo3/model_data/square_tiny2.h5', classes_path='classes.txt', anchors_path='keras_yolo3/model_data/anchors2.txt')
 
 
-cap = cv2.VideoCapture('IMG_2494.MOV')
-
+cap = cv2.VideoCapture('IMG_7544.MOV')
+result = 0
 while True:
     ret, frame = cap.read()
 
@@ -25,16 +25,17 @@ while True:
         # 회전
         # frame = frame.rotate(270)
 
-        frame = yolo.detect_image(frame)
-        # frame = np.array(frame)
-        # frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
-        cv2.imshow('video', np.array(frame))
+        frame, cnt = yolo.detect_image(frame)
+        result += cnt
+        frame = np.array(frame)
+        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+        cv2.imshow('video', frame)
 
         if cv2.waitKey(1) % 0xFF == 27:
             break
     else:
-        print("error")
-
+        break
+print(result)
 cap.release()
 cv2.destroyAllWindows()
 
