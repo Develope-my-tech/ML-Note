@@ -281,9 +281,6 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 <summary>[데이터셋을 조정해보기]</summary>
 <br>
 
-- [ ]  횡단보도 데이터셋의 신호등을 지우기
-- [ ] 횡단보도 데이터셋의 신호등까지 라벨링해서 하기
-
 <details>
 <summary>[1차 시도]</summary>
 <br>
