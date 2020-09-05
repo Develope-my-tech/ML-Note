@@ -1,6 +1,6 @@
 
 ## Machine Learning Note
-keras : https://tykimos.github.io/2017/01/27/MLP_Layer_Talk/](https://tykimos.github.io/2017/01/27/MLP_Layer_Talk/)
+keras : https://tykimos.github.io/2017/01/27/MLP_Layer_Talk/
 
 ### 0707
 - sklearn의 SVM / mnist와 csv 데이터를 활용한 간단한 예제 모델 구현 및 학습
