@@ -14,7 +14,7 @@
 ### 4-3. [학습 모델 구현 과정](#3-학습-모델-구현하기)
 ### 4-4. [세부 설정 조정](#4-세부-작업)
 
-## darknet
+## Darknet
 c언어로 작성된 물체 인식 오픈 소스 신경망
 
 ## YOLO
@@ -33,29 +33,29 @@ darknet을 통해 학습된 신경망
 
 	```
 	# Convert darknet weights to tensorflow
-	 ## yolov4  버전
-	 python save_model.py --weights ./data/yolov4.weights --output ./checkpoints/yolov4-416 --input_size 416 --model yolov4 
+	## yolov4  버전
+	python save_model.py --weights ./data/yolov4.weights --output ./checkpoints/yolov4-416 --input_size 416 --model yolov4 
 
-	 ## yolov4-tiny 버전
-	 python save_model.py --weights ./data/yolov4-tiny.weights --output ./checkpoints/yolov4-tiny-416 --input_size 416 --model yolov4 --tiny
+	## yolov4-tiny 버전
+	python save_model.py --weights ./data/yolov4-tiny.weights --output ./checkpoints/yolov4-tiny-416 --input_size 416 --model yolov4 --tiny
 	```
 2) object detection이 잘 되는 지 확인하기	  
 	```
 	# Run demo tensorflow
-	 python detect.py --weights ./checkpoints/yolov4-416 --size 416 --model yolov4 --image ./data/kite.jpg
+	python detect.py --weights ./checkpoints/yolov4-416 --size 416 --model yolov4 --image ./data/kite.jpg
 
-	 python detect.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolov4 --image ./data/kite.jpg --tiny
+	python detect.py --weights ./checkpoints/yolov4-tiny-416 --size 416 --model yolov4 --image ./data/kite.jpg --tiny
 	```
 3) 결과  
-   ![img](https://github.com/kairess/tensorflow-yolov4-tflite/raw/master/result.png)  
+   <image src="https://github.com/kairess/tensorflow-yolov4-tflite/raw/master/result.png" width="90%">
   
-   ![image](https://user-images.githubusercontent.com/34594339/89185473-3f998f00-d5d5-11ea-99f7-45c37f85e8f0.png)  
+   <image src="https://user-images.githubusercontent.com/34594339/89185473-3f998f00-d5d5-11ea-99f7-45c37f85e8f0.png" width="90%">  
   
    ⇒ yolov4 weight (위) / yolo4-tiny (아래)  
    속도는 tiny가 훨씬 빠르다.  
 
 ### ⇒ YOLOV4를 이용해 커스텀 데이터 셋을 만들려고 하였으나, YOLOV3를 이용한 정확도가 훨씬 높아 YOLOV3-tiny를 사용하기로 함.
-  <br>
+ <br>
   
 # Custom Dataset을 이용한 학습모델 구현
 
@@ -81,15 +81,17 @@ darknet을 통해 학습된 신경망
   
 	 추가)  OpenCV 좌표계 
 	 
-	 ![enter image description here](https://lh4.googleusercontent.com/ndFH6A225tFLWb7JwjyMmn539c4e1c1CmU7w4hQD6j-uO9K4diKfZ-FDr8LFuKa9oad9IaunhXRz0kD0JoRbeRV4gzUpS0ELyPKMIlpXs9FgvbJZiNGreGvWQAlMnYnRkqzo8Vlh)  
+	 <image src="https://lh4.googleusercontent.com/ndFH6A225tFLWb7JwjyMmn539c4e1c1CmU7w4hQD6j-uO9K4diKfZ-FDr8LFuKa9oad9IaunhXRz0kD0JoRbeRV4gzUpS0ELyPKMIlpXs9FgvbJZiNGreGvWQAlMnYnRkqzo8Vlh" width="80%">  
 
 
 -  ### [데이터 라벨링 하기 ](https://github.com/bosl95/MachineLearning_Note/tree/master/contest_preparation/labeling  )
+
+<br>
   
 ## 2) 훈련시키기 위한 설정
 
 >  ## 기본 지식
- ![image](https://user-images.githubusercontent.com/34594339/89891485-1e0d5880-dc10-11ea-8b08-4c61505a6bf6.png)
+ <image src="https://user-images.githubusercontent.com/34594339/89891485-1e0d5880-dc10-11ea-8b08-4c61505a6bf6.png" width="70%">
  
 > ##  Colab 
   - yolo를 노트북에서도 사용하기 위해서는 **GPU를 사용해야 한다.**   
@@ -99,7 +101,7 @@ darknet을 통해 학습된 신경망
 	   - `` !`` :  쉘이 끝나면 유지 되지 않음
 	   - ``%`` : 쉘이 끝난 후에도 계속 유지
 	   
-![image](https://user-images.githubusercontent.com/34594339/89725910-db9d1d80-da4f-11ea-88bf-8ab79c47a555.png)  
+<image src="https://user-images.githubusercontent.com/34594339/89725910-db9d1d80-da4f-11ea-88bf-8ab79c47a555.png" width="80%">  
   
 > ## custom data train을 위한 파일  
 ###  1) ```obj.data``` : 학습을 위한 내용이 담긴 파일  
@@ -125,7 +127,8 @@ darknet을 통해 학습된 신경망
 ### 7) ``train.txt`` : 학습시킬 이미지들의 경로들이 담긴 리스트  
 ### 8) ``valid.txt`` : 학습 시 validation 할 이미지들의 경로들이 담긴 리스트  
   
----
+<br>
+<br>
 
 ## 3) 학습 모델 구현하기  
  
@@ -147,21 +150,22 @@ darknet을 통해 학습된 신경망
          - [https://codingzzangmimi.tistory.com/76](https://codingzzangmimi.tistory.com/76)  
          - [https://go-programming.tistory.com/160](https://go-programming.tistory.com/160)  
   
-        
+<br> 
 2) train 명령어  
       
-      	!./darknet detector train custom/custom.data custom/custom_yolov4-tiny.cfg custom/yolov4-tiny.conv.29 -dont_show  
+    !./darknet detector train custom/custom.data custom/custom_yolov4-tiny.cfg custom/yolov4-tiny.conv.29 -dont_show  
           
-     - 원래 map과 loss에 대한 그래프가 나오는데 코랩의 리눅스 상에서는 볼 수 없는 듯하다. 에러가 나기 때문에 dont_show를 추가해 보지 않는 것으로 처리해준다.  
+   - 원래 map과 loss에 대한 그래프가 나오는데 코랩의 리눅스 상에서는 볼 수 없는 듯하다. 에러가 나기 때문에 dont_show를 추가해 보지 않는 것으로 처리해준다.  
  - yolov4-tiny.conv.29 : pre-train된 weight 값을 넣어주었다. 첫 training에서 비워두고 사용해도 된다고 함.  
-  
+<br> 
 3) detect 명령어  
         
        !./darknet detector test custom/custom.data custom/custom_yolov4-tiny.cfg custom_yolov4-tiny_last.weights -thresh 0.25 -dont_show -ext_output < custom/train.txt > result.txt  
  - 이때 tarin.txt에 있는 이미지의 경로를 읽어오지 못한다는 에러가 발생했다.  
        
-      !apt-get install dos2unix   
-       !dos2unix custom/train.txt  # to linux format  
+	   !apt-get install dos2unix   
+	   !dos2unix custom/train.txt  # to linux format
+
   train.txt 파일을 윈도우상에서 만들었기 때문에 dos2unix라는 모듈을 이용하여 txt파일을 리눅스상에서 읽을 수 있는 포맷으로 바꾸어주었다.  
        
    - 실행결과  
@@ -194,7 +198,7 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 (accuracy 30%  ==> 60% 이상으로 올라갔다.)
 [[횡단보도 데이터 셋 활용 출처]](https://github.com/samuelyu2002/ImVisible)
 
-![image](https://user-images.githubusercontent.com/34594339/90633401-f138f100-e260-11ea-8d70-d78506eb1e76.png)
+<image src="https://user-images.githubusercontent.com/34594339/90633401-f138f100-e260-11ea-8d70-d78506eb1e76.png" width="90%">
 
 </div>
 </details>
@@ -217,7 +221,8 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 	신호등 데이터셋 또한 다시 라벨링하여 가까운 위치에 있는 신호등 데이터셋만 라벨링을 다시 하였다.
 	
 	- 새로 정제한 신호등 데이터 셋과 YoloV3-tiny를 이용하여 학습 시도
-		![image](https://user-images.githubusercontent.com/34594339/90770202-61f90f80-e32c-11ea-9086-43e0d3269b24.png)
+		
+		<image src="https://user-images.githubusercontent.com/34594339/90770202-61f90f80-e32c-11ea-9086-43e0d3269b24.png" width="90%">
 
 		500 여장 정도의  이미지로 50%의 인식률을 보여줬다.
 
@@ -227,14 +232,16 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 - #### 4차 시도
 	정확도를 더 올리기 위해  width, height를 608로 설정.
 	anchor도 재정하여 실행하였으나 
-	![image](https://user-images.githubusercontent.com/34594339/91044260-f676b100-e64f-11ea-81f7-50fc95d95e30.png)
+	
+	<image src="https://user-images.githubusercontent.com/34594339/91044260-f676b100-e64f-11ea-81f7-50fc95d95e30.png" width="80%">
 
 	메모리 초과가 발생했다.
 	⇒ batch의 크기를 조금 줄여주고, subdivision의 크기를 키워주면 된다고 함. (batch : 64, 32, 16 ...  / subdivision : 8, 16, 32, .. )
 	
 - #### 5차 시도
 	 **batch=32 / subdivision=16으로 설정하여 재시도!**
-		 ![image](https://user-images.githubusercontent.com/34594339/91061321-fe8e1b00-e666-11ea-8cfe-24373780e5ea.png)
+	 
+	<image src="https://user-images.githubusercontent.com/34594339/91061321-fe8e1b00-e666-11ea-8cfe-24373780e5ea.png" width="80%">
 	
 	⇒ 416 크기였을 때보다 낮은 정확도,, 
 	
@@ -245,7 +252,7 @@ yolov4 대신 **yolov3-tiny**를 이용하여 학습 시키니 정확도가 훨�
 	width, height = 416, 416 </br>
 	steps=4000,4500 </br>
 	
-	![image](https://user-images.githubusercontent.com/34594339/91108707-aaf5ee80-e6b3-11ea-9bf6-8eeac227eb68.png)
+	<image src="https://user-images.githubusercontent.com/34594339/91108707-aaf5ee80-e6b3-11ea-9bf6-8eeac227eb68.png" width="80%">
 
 </div>
 </details>
