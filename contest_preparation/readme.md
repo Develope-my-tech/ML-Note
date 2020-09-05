@@ -69,9 +69,11 @@ darknet을 통해 학습된 신경망
    3) 사진을 저장하는 경우에 label 데이터는 가공이 필요하다.  
    현재 AI hub에서 제공되는 Bounding Box  좌표 ⇒ (좌상단 x, 좌상단 y, 우하단 x, 우하단 y좌표)  
    yolo에서 데이터 셋을 훈련시킬 때 label의 좌표 ⇒ (center x, center y, ratio w, ratio h) 좌표  
-           
+<br>           
         
  > #### COCO 데이터 포맷은 bouding box 값이  **x, y, w, h**  값으로 구성되어있다.하지만 YOLO에서의 포맷은 클래스 번호와  **전체 영상 크기에 대한 center x, center y, w, h 비율 값**으로 구성된다.  
+  
+  <br>
   
  -  출처: [https://eehoeskrap.tistory.com/367](https://eehoeskrap.tistory.com/367)     
  - 참고 : [<보행등 사진만 분류하기>](https://github.com/Guanghan/darknet/blob/master/scripts/convert.py) 
@@ -102,7 +104,9 @@ darknet을 통해 학습된 신경망
 	   - ``%`` : 쉘이 끝난 후에도 계속 유지
 	   
 <image src="https://user-images.githubusercontent.com/34594339/89725910-db9d1d80-da4f-11ea-88bf-8ab79c47a555.png" width="80%">  
-  
+ 
+ <br>
+ 
 > ## custom data train을 위한 파일  
 ###  1) ```obj.data``` : 학습을 위한 내용이 담긴 파일  
    - classes 개수  
@@ -160,7 +164,7 @@ darknet을 통해 학습된 신경망
 <br> 
 3) detect 명령어  
         
-       !./darknet detector test custom/custom.data custom/custom_yolov4-tiny.cfg custom_yolov4-tiny_last.weights -thresh 0.25 -dont_show -ext_output < custom/train.txt > result.txt  
+     !./darknet detector test custom/custom.data custom/custom_yolov4-tiny.cfg custom_yolov4-tiny_last.weights -thresh 0.25 -dont_show -ext_output < custom/train.txt > result.txt  
  - 이때 tarin.txt에 있는 이미지의 경로를 읽어오지 못한다는 에러가 발생했다.  
        
 	   !apt-get install dos2unix   
